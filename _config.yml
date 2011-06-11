@@ -3,22 +3,22 @@
 
 ## Site author's information.
 author:
-  name:      Susan Potter
-  title:     Software Engineer
-  email:     me@susanpotter.net
-  site:      http://susanpotter.net
-  location:  "Urbana, IL, US"
+  name:      Alberto Peña Abril
+  title:     Software Craftsmanship
+  email:     plagelao@gmail.com
+  site:      http://plagelao.com
+  location:  "Eastleigh, UK"
   gh:
-    user:    mbbx6spp
+    user:    plagelao
     repo:    7languages7weeks
-  twitter:   SusanPotter
-  disqus: 
+  twitter:   plagelao
+  #disqus:
     # if you don't have disqus setup for this new site, please make sure to comment it.
-    shortname: mbbx6spp-github-blog
+    #shortname: plagelao-github-blog
 
 ## The absolute URL of your site. Should be user.github.com or whatever is in
 ## the root CNAME file
-url:         http://mbbx6spp.github.com/7languages7weeks
+url:         http://plagelao.github.com/7languages7weeks
 
 ## The name of the site, <title> and <h1> in _layouts/default.html
 title:       "Seven Languages in Seven Weeks #7languages7weeks blog"
@@ -33,7 +33,7 @@ keywords:    [ Ruby, Io, Prolog, Scala, Erlang, Clojure, Haskell ]
 paginate:    5
 
 ## Google Analytics id.
-ga: UA-837842-7
+#ga: UA-837842-7
 
 ## A list of directories and files to exclude from the conversion
 exclude: [ ]
@@ -42,7 +42,7 @@ exclude: [ ]
 # Jekyll Defaults
 #################
 
-## 
+##
 #future:      true
 markdown:    maruku
 ## Controls the URLs that posts are generated with.
@@ -76,7 +76,7 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   use_coderay: false
-  
+
   coderay:
     coderay_wrap: div
     coderay_line_numbers: inline
