@@ -4,7 +4,7 @@ layout: post
 
 Someone told me once that, in order to master a language, you must learn everything about how collections work in that language. Bruce A. Tate seems to agree with that, since Ruby second day is all about collections (ok, and blocks).
 
-There are only two classes for collections in ruby, [Array](http://www.ruby-doc.org/core/classes/Array.html) and [Hash]()http://www.ruby-doc.org/core/classes/Hash.html. Both of them are [Enumerable(s)](http://www.ruby-doc.org/core/classes/Enumerable.html) and both of them are awesome. You can do great things with them in a very easy way.
+There are only two classes for collections in ruby, [Array](http://www.ruby-doc.org/core/classes/Array.html) and [Hash](http://www.ruby-doc.org/core/classes/Hash.html). Both of them are [Enumerable(s)](http://www.ruby-doc.org/core/classes/Enumerable.html) and both of them are awesome. You can do great things with them in a very easy way.
 
 There are three exercises for this day:
 
