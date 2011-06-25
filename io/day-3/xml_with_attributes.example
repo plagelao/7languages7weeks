@@ -1,0 +1,6 @@
+library({"owner":"plagelao"},
+        book({"author":"Tate"},
+             "7 languages in 7 weeks"),
+        book({"author":"Crockford"},
+             "Javascript: The good parts")
+        )

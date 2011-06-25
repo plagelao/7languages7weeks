@@ -1,0 +1,2 @@
+doFile("./io/day-3/formatted_xml_builder.io")
+Builder doFile("./io/day-3/xml.example")

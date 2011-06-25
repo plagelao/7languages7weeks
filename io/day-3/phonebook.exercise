@@ -1,0 +1,8 @@
+doFile("./io/day-3/json_hash.io")
+phoneNumbers := doFile("./io/day-3/phonebook.example")
+
+write("Keys: ")
+phoneNumbers keys println
+write("Values: ")
+phoneNumbers values println
+
