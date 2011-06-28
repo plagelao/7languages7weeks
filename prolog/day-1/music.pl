@@ -9,7 +9,7 @@ musician(john, guitar).
 
 genre(jota, pop).
 genre(m_ward, folk).
-genre(zooe, folk).
+genre(zooey, pop).
 genre(eric, pop).
 genre(john, jazz).
 genre(jarvis, pop).
