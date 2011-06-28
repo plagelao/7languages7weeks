@@ -12,5 +12,6 @@ genre(m_ward, folk).
 genre(zooe, folk).
 genre(eric, pop).
 genre(john, jazz).
+genre(jarvis, pop).
 
-instrument_by_genre(Musician, Instrument, Genre) :- musician(Musician, Instrument), genre(Musician, Genre).
+musician_instrument_and_genre(Musician, Instrument, Genre) :- musician(Musician, Instrument), genre(Musician, Genre).
