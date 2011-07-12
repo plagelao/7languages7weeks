@@ -4,9 +4,9 @@
 
 words([]) -> 0;
 words([32|Rest]) -> words(Rest);
-words([Character|[]]) -> 1;
-words([Character|[32|Rest]]) -> 1 + words(Rest);
-words([Character|Rest]) -> words(Rest).
+words([_|[]]) -> 1;
+words([_|[32|Rest]]) -> 1 + words(Rest);
+words([_|Rest]) -> words(Rest).
 
 
 to_ten() -> to_ten_from(1).
