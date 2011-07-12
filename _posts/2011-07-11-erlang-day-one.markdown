@@ -18,9 +18,11 @@ Let's have a look at this first day exercises:
 
         words([]) -> 0;
         words([32|Rest]) -> words(Rest);
-        words([Character|[]]) -> 1;
-        words([Character|[32|Rest]]) -> 1 + words(Rest);
-        words([Character|Rest]) -> words(Rest).
+        words([_|[]]) -> 1;
+        words([_|[32|Rest]]) -> 1 + words(Rest);
+        words([_|Rest]) -> words(Rest).
+
+  * Update: I changed the formula to remove some warnings :)
 
   I think that there should be a better solution, but this is mine :P The 32 is the ASCII code for an empty space. So, how am I counting words? First of all, in Erlang, a string is a list of characters, so my strategy is to count how many empty spaces are in that list (more or less). My first "rule" is that an empty string has no words. Then, if the string starts with an empty space, I remove that empty space and count the words for the rest of the string. Also, if the string is compoused by a single charater, it contains one word. If the string starts with a character followed by an empty space, we count the words in the rest of the string and add one more (the first one). Finally, if the first character is not followed by an empty space we removed that character and count the words in the rest of the string... Sounds complicated, doesn't it?
 
