@@ -14,10 +14,13 @@ Let's have a look at today exercises so you can also appreciate Erlang beauty:
 - Consider a list of keyword-value tuples, such as [{erlang, "a functional language"}, {ruby, "an OO language"}]. Write a function that accepts the list and a keyword and returns the associated value for the keyword.
 
   I could have create the function as anonymous one, but I preferred to define it in a file:
+
         -module(languages).
         -export([description/2]).
 
-        description(List, SelectedLanguage) -> [{_, Description}|_] = lists:filter(fun({Language, _}) -> Language == SelectedLanguage end, List), Description.
+        description(List, SelectedLanguage) ->
+          [{_, Description}|_] = lists:filter(fun({Language, _}) -> Language == SelectedLanguage end, List),
+          Description.
 
   We are applying a filter function on the list to get the value that we want and then we return the Description part of the selected tuple.
   It is almost like Prolog. The most important difference is that this Erlang function returns a value (Description), something that we were not allowed to do in Prolog.
@@ -57,7 +60,8 @@ Let's have a look at today exercises so you can also appreciate Erlang beauty:
           Combinations = [[C11,C12,C13],[C21,C22,C23],[C31,C32,C33],
                           [C11,C21,C31],[C12,C22,C32],[C13,C23,C33],
                           [C11,C22,C33],[C13,C22,C31]],
-          Solution = [Player || Player <- [x,o], Combination <- Combinations, lists:all(fun(Cell) -> Cell == Player end, Combination)],
+          Solution = [Player || Player <- [x,o],
+                                Combination <- Combinations, lists:all(fun(Cell) -> Cell == Player end, Combination)],
           case Solution of
             [] -> cat;
             [Winner|_] -> Winner
