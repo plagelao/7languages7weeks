@@ -70,4 +70,30 @@ Let's have a look at today exercises so you can also appreciate Erlang beauty:
   How cool is that? So many things done in so little code! And I think it is readable, too. What do you think?
   I am sure that there is a better solution to the exercise, but I am very happy with this one (I blame Erlang).
 
-  And that's all for today. As always, you can [check out my examples in my github repository for 7 languages in 7 weeks](https://github.com/plagelao/7languages7weeks/tree/master/erlang/day-2). See you tomorrow!
+  *Update*: There is an error in the previous program. If there is a winner but the board is not full of x and o's it says no_winner. Here is the program fixed:
+
+        -module(tictactoe).
+        -export([state/1]).
+
+        state_when_no_winner(Board) ->
+          case lists:any(fun(Cell) -> Cell == empty end, Board) of
+            true -> no_winner;
+            false -> cat
+          end.
+
+        state(Board) ->
+          [C11,C12,C13,
+          C21,C22,C23,
+          C31,C32,C33] = Board,
+
+          Combinations = [[C11,C12,C13],[C21,C22,C23],[C31,C32,C33],
+                          [C11,C21,C31],[C12,C22,C32],[C13,C23,C33],
+                          [C11,C22,C33],[C13,C22,C31]],
+
+          Solution = [Player || Player <- [x,o], Combination <- Combinations, lists:all(fun(Cell) -> Cell == Player end, Combination)],
+          case Solution of
+            [] -> state_when_no_winner(Board);
+            [Winner|_] -> Winner
+          end.
+
+And that's all for today. As always, you can [check out my examples in my github repository for 7 languages in 7 weeks](https://github.com/plagelao/7languages7weeks/tree/master/erlang/day-2). See you tomorrow!
