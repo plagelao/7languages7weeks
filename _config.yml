@@ -18,7 +18,7 @@ author:
 
 ## The absolute URL of your site. Should be user.github.com or whatever is in
 ## the root CNAME file
-url:         http://plagelao.github.com/7languages7weeks
+url:         http://blog.plagelao.com/7languages7weeks
 
 ## The name of the site, <title> and <h1> in _layouts/default.html
 title:       "Seven Languages in Seven Weeks #7languages7weeks blog"
