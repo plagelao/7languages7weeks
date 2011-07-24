@@ -43,7 +43,7 @@ Anyway, let's talk about the third Clojure day. This day is all about concurrenc
         (def haircuts (agent 0))
 
         (defn add-haircut [h]
-        (+ 1 h))
+          (+ 1 h))
 
   To add a new haircut we need to send the message to the agent:
 
@@ -61,27 +61,27 @@ Anyway, let's talk about the third Clojure day. This day is all about concurrenc
   If there are none, the client goes to the barber chair. If the barber chair is not free, the client waits. If there are three clients already waiting, the new client leaves. Let's have a look at the functions. First the easy one, the client leaves without a haircut:
 
         (defn customer-leaves-the-shop-without-a-haircut [c]
-        c)
+          c)
 
   It does not do anything :) Let's see what happens when the client waits:
 
         (defn customer-waits-for-a-haircut [c]
-        (+ c 1))
+          (+ c 1))
 
   It adds one to the clients count. And now the one with the haircut:
 
         (defn customer-has-a-haircut [c]
-        (send customers-in-shop customer-leaves-the-shop-with-a-haircut)
-        (+ c 1))
+          (send customers-in-shop customer-leaves-the-shop-with-a-haircut)
+          (+ c 1))
 
   It sends a message to the waiting clients agent so the barber give a haircut to one of them and adds a client to the counter. What does customer-leaves-the-shop-with-a-haircut?:
 
         (defn customer-leaves-the-shop-with-a-haircut [c]
-        (Thread/sleep 20)
-        (send haircuts add-haircut)
-        (if (> c 1)
-          (send customers-in-shop customer-leaves-the-shop-with-a-haircut))
-        (- c 1))
+          (Thread/sleep 20)
+          (send haircuts add-haircut)
+          (if (> c 1)
+            (send customers-in-shop customer-leaves-the-shop-with-a-haircut))
+          (- c 1))
 
   The barber spend 20 milliseconds with each haircut, then sends the add-haircut to the haircuts agent. After that, if there are clients waiting, it sends a message to the waiting clients agent so the barber give a haircut to one of them. Then, it removes the current client form the clients count.
 
@@ -90,18 +90,18 @@ Anyway, let's talk about the third Clojure day. This day is all about concurrenc
         (def client (agent 0))
 
         (defn arrive [c]
-        (Thread/sleep (+ 10 (rand-int 20)))
-        (send customers-in-shop customer-in-shop)
-        (send client arrive)
-        c)
+          (Thread/sleep (+ 10 (rand-int 20)))
+          (send customers-in-shop customer-in-shop)
+          (send client arrive)
+          c)
 
   To count how many haircuts gives the barber in n seconds we use this function:
 
         (defn how-many-customers-with-a-new-haircut-in [seconds]
-        (send customers-in-shop #(* % 0))
-        (send client arrive)
-        (Thread/sleep (* 1000 seconds))
-        @haircuts)
+          (send customers-in-shop #(* % 0))
+          (send client arrive)
+          (Thread/sleep (* 1000 seconds))
+          @haircuts)
 
   In case you are wondering, the barber gives between 450 and 470 haircuts :)
 
