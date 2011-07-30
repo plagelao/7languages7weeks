@@ -1,3 +1,4 @@
 module Main where
-  my_reverse [] = []
-  my_reverse(h:t) = reverse(t) ++ [h]
+  myReverse :: [a] -> [a]
+  myReverse [] = []
+  myReverse(h:t) = myReverse(t) ++ [h]
