@@ -1,2 +1,2 @@
 module Main where
-  toNumber (h:t) = read (filter (\c -> c /= ',') t) :: Double
+  toNumber (h:t) = read (filter (/= ',') t) :: Double
