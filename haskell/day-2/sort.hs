@@ -1,9 +1,14 @@
 module Main where
   mySort :: [Integer] -> [Integer]
-  mySort [] = []
-  mySort [x] = [x]
-  mySort [x,y] = if x < y then [x,y] else [y,x]
-  mySort (h:t) = if h < head(mySort t) then h:(mySort t) else (head(mySort t)):mySort(h:(tail(mySort t)))
+  mySort list
+    | list == []    = []
+    | t == []       = list
+    | tail t == []  = sortTwoNumbers h (head t)
+    | otherwise     = if areOrdered h t then h:(mySort t) else (head (mySort t)):mySort((h:(tail (mySort t))))
+      where h = head list
+            t = tail list
+            areOrdered number list =  number > (head (mySort list))
+            sortTwoNumbers x y = if x > y then [x,y] else [y,x]
 
   mySortWithFunction list fun
     | list == []    = []
