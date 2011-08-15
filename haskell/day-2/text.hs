@@ -17,3 +17,9 @@ module Text where
     | otherwise = firstWord:(line remainingColumns (tail textWords))
       where firstWord = head textWords
             remainingColumns = columns - 1 - (length firstWord)
+
+  addLineNumbers :: Int -> [[Char]] -> [(Int, [Char])]
+  addLineNumbers line (firstLine:text) = (line, firstLine):(addLineNumbers (line+1) text)
+  addLineNumbers line [] = []
+
+  justifyWithNumbers columns text = addLineNumbers 1 (justify columns text)

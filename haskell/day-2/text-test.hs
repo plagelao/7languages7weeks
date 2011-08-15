@@ -5,7 +5,8 @@ module Text_Test where
   tests = TestList [
       wordSizeIsNumberOfColumns,
       firstLineOfAText,
-      breakText
+      breakText,
+      [(1,"I am so"), (2,"glad to"), (3,"meet you")] ~=? justifyWithNumbers 10 "I am so glad to meet you"
     ]
 
   wordSizeIsNumberOfColumns = TestList [
